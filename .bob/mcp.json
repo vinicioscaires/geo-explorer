@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "dio-trilhas": {
+    "geo-explorer": {
       "command": "python",
       "args": ["C:/Users/Nod/.bob/playground/mcp/server.py"],
       "env": {}

@@ -1,6 +1,6 @@
 ============================================================
   RELATÓRIO DE TESTES — GEO-EXPLORER
-  Gerado em  : 12/09/2026 20:00:27
+  Gerado em  : 12/09/2026 20:19:33
 ============================================================
 
   Total de testes : 122
@@ -138,7 +138,7 @@ test_e4_04_todos_objetos_validos (test_jornada_explorador.TestEtapa4Consistencia
 test_e4_05_tema_consistente_plano_certificado (test_jornada_explorador.TestEtapa4Consistencia.test_e4_05_tema_consistente_plano_certificado) ... ok
 
 ----------------------------------------------------------------------
-Ran 122 tests in 0.011s
+Ran 122 tests in 0.012s
 
 OK
 

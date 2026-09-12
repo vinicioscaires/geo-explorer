@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Runner de Testes — Geo-Explorer
 Arquivo: testes/executar_testes.py
@@ -94,6 +95,8 @@ def gerar_relatorio(resultado, saida_detalhe):
 
 
 def main():
+    sys.stdout.reconfigure(encoding='utf-8')
+
     print('\n' + '=' * 60)
     print('  GEO-EXPLORER — Executando Testes')
     print('=' * 60 + '\n')
