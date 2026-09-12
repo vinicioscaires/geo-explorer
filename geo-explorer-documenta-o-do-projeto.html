@@ -1,0 +1,493 @@
+
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>🌍 Geo-Explorer</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #1f2328;
+    background: #ffffff;
+    padding: 0 16px 48px;
+  }
+  .page { max-width: 760px; margin: 0 auto; }
+
+  /* HEADER */
+  .hero {
+    background: #0f172a;
+    color: #f1f5f9;
+    border-radius: 12px;
+    padding: 40px 36px 32px;
+    margin: 32px 0 36px;
+  }
+  .hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
+  .hero p  { font-size: 1rem; color: #94a3b8; }
+
+  /* BADGES ROW */
+  .badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .3px;
+  }
+  .badge-green  { background: #dcfce7; color: #166534; }
+  .badge-blue   { background: #dbeafe; color: #1e40af; }
+  .badge-purple { background: #ede9fe; color: #5b21b6; }
+  .badge-amber  { background: #fef3c7; color: #92400e; }
+
+  /* SECTION */
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1f2328;
+    margin: 40px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e5e7eb;
+  }
+  h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1f2328;
+    margin: 24px 0 8px;
+  }
+  h4 {
+    font-size: .95rem;
+    font-weight: 600;
+    color: #374151;
+    margin: 20px 0 6px;
+  }
+  p { margin-bottom: 12px; }
+  ul, ol { padding-left: 22px; margin-bottom: 12px; }
+  li { margin-bottom: 4px; }
+  strong { font-weight: 600; }
+  hr { border: none; border-top: 1px solid #e5e7eb; margin: 32px 0; }
+  a { color: #3b82d4; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* CALLOUT */
+  blockquote {
+    background: #f0f9ff;
+    border-left: 4px solid #3b82d4;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    color: #1e3a5f;
+    font-size: .93rem;
+  }
+  .tip {
+    background: #f0fdf4;
+    border-left: 4px solid #22c55e;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    color: #14532d;
+    font-size: .93rem;
+  }
+
+  /* CODE */
+  code {
+    font-family: "Cascadia Code", "Fira Code", "Consolas", monospace;
+    font-size: .85em;
+    background: #f3f4f6;
+    color: #d63384;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  pre {
+    background: #0f172a;
+    color: #e2e8f0;
+    border-radius: 8px;
+    padding: 18px 20px;
+    overflow-x: auto;
+    font-size: .83rem;
+    line-height: 1.6;
+    margin: 12px 0 16px;
+  }
+  pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border-radius: 0;
+    font-size: inherit;
+  }
+  .cmd { color: #86efac; }
+  .cmt { color: #64748b; }
+
+  /* TABLES */
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: .9rem; }
+  thead tr { background: #f7f8fa; }
+  th { text-align: left; padding: 9px 12px; font-weight: 600; border-bottom: 2px solid #e5e7eb; color: #374151; }
+  td { padding: 8px 12px; border-bottom: 1px solid #f1f2f4; }
+  tr:hover td { background: #fafafa; }
+  .level-i  { color: #16a34a; font-weight: 600; }
+  .level-m  { color: #d97706; font-weight: 600; }
+  .level-a  { color: #dc2626; font-weight: 600; }
+  .xp { font-weight: 700; color: #7c5cd8; }
+
+  /* COMMAND CARDS */
+  .cmd-card {
+    background: #f7f8fa;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 16px 0;
+  }
+  .cmd-card .cmd-name {
+    font-family: "Cascadia Code", "Fira Code", monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1f2328;
+    background: #e0e7ff;
+    padding: 4px 10px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  /* MELHORIAS */
+  .melhoria {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid #f1f2f4;
+  }
+  .melhoria:last-child { border-bottom: none; }
+  .melhoria-num {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    background: #7c5cd8;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .8rem;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .melhoria-body h4 { margin: 0 0 4px; }
+  .melhoria-body p  { margin: 0; color: #57606a; font-size: .9rem; }
+
+  /* TEST RESULT BOX */
+  .test-box {
+    background: #0f172a;
+    color: #e2e8f0;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 16px 0;
+    font-family: "Cascadia Code", monospace;
+    font-size: .83rem;
+    line-height: 1.8;
+  }
+  .test-ok    { color: #4ade80; font-weight: 700; }
+  .test-label { color: #94a3b8; }
+  .test-val   { color: #f8fafc; font-weight: 600; }
+  .test-sep   { color: #334155; }
+
+  /* STEPS */
+  .steps { counter-reset: step; list-style: none; padding: 0; }
+  .steps li {
+    counter-increment: step;
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    align-items: flex-start;
+  }
+  .steps li::before {
+    content: counter(step);
+    flex-shrink: 0;
+    width: 24px; height: 24px;
+    background: #3b82d4;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .78rem;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+
+  /* FOOTER */
+  footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+    text-align: center;
+    color: #57606a;
+    font-size: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  
+  <div class="hero">
+    <h1>🌍 Geo-Explorer</h1>
+    <p>Plataforma fictícia de exploração e aprendizagem em tecnologia, desenvolvida inteiramente com <strong style="color:#818cf8">IBM Bob</strong>.</p>
+    <div class="badges">
+      <span class="badge badge-green">✅ 122 testes passando</span>
+      <span class="badge badge-purple">📊 100% cobertura</span>
+      <span class="badge badge-blue">🐍 Python 3.12</span>
+      <span class="badge badge-amber">🤖 IBM Bob</span>
+    </div>
+  </div>
+
+  
+  <h2>📖 O que é o Geo-Explorer</h2>
+  <p>O <strong>Geo-Explorer</strong> transforma o aprendizado em tecnologia em uma aventura épica. Cada trilha é uma jornada temática — com módulos progressivos, missões especiais, badges e recompensas — tornando o caminho até a maestria técnica motivador e imersivo.</p>
+  <p>A plataforma foi criada como um desafio prático de desenvolvimento assistido por IA, usando o <strong>IBM Bob</strong> como parceiro em todas as etapas: ideação, criação de dados, definição dos slash commands, escrita dos testes e automação.</p>
+  <p>Três comandos principais movem a plataforma, todos operando dentro do IBM Bob:</p>
+  <table>
+    <thead><tr><th>Comando</th><th>Descrição</th></tr></thead>
+    <tbody>
+      <tr><td><code>/trilha &lt;tecnologia&gt;</code></td><td>Exibe o plano completo de exploração de uma trilha</td></tr>
+      <tr><td><code>/desafio &lt;tecnologia&gt; &lt;nivel&gt;</code></td><td>Gera uma missão de código temática e narrativa</td></tr>
+      <tr><td><code>/certificado &lt;nome&gt; &lt;tecnologia&gt;</code></td><td>Emite um certificado épico de explorador</td></tr>
+    </tbody>
+  </table>
+
+  
+  <h2>🗺️ Trilhas Disponíveis</h2>
+  <table>
+    <thead><tr><th>#</th><th>Trilha</th><th>Tecnologia</th><th>Nível</th><th>XP</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Jornada do Código Selvagem</td><td>Python</td><td class="level-i">Iniciante</td><td class="xp">9.600</td></tr>
+      <tr><td>2</td><td>Fronteiras do Front-End</td><td>JavaScript</td><td class="level-i">Iniciante</td><td class="xp">10.800</td></tr>
+      <tr><td>3</td><td>O Castelo do TypeScript</td><td>TypeScript</td><td class="level-m">Intermediário</td><td class="xp">13.500</td></tr>
+      <tr><td>4</td><td>Templo de React</td><td>React</td><td class="level-m">Intermediário</td><td class="xp">14.200</td></tr>
+      <tr><td>5</td><td>Ruínas do Node.js</td><td>Node.js</td><td class="level-m">Intermediário</td><td class="xp">12.800</td></tr>
+      <tr><td>6</td><td>Galáxia Java</td><td>Java</td><td class="level-m">Intermediário</td><td class="xp">15.600</td></tr>
+      <tr><td>7</td><td>A Fortaleza dos Dados</td><td>SQL</td><td class="level-i">Iniciante</td><td class="xp">8.400</td></tr>
+      <tr><td>8</td><td>Nuvem Sem Fronteiras</td><td>Cloud Computing</td><td class="level-a">Avançado</td><td class="xp">19.600</td></tr>
+      <tr><td>9</td><td>Labirinto do DevOps</td><td>DevOps</td><td class="level-a">Avançado</td><td class="xp">18.200</td></tr>
+      <tr><td>10</td><td>Oráculo da Inteligência Artificial</td><td>IA</td><td class="level-a">Avançado</td><td class="xp">22.500</td></tr>
+      <tr><td>11</td><td>Floresta do Flutter</td><td>Flutter</td><td class="level-i">Iniciante</td><td class="xp">10.800</td></tr>
+      <tr><td>12</td><td>Oceano da Segurança</td><td>Cibersegurança</td><td class="level-a">Avançado</td><td class="xp">20.300</td></tr>
+    </tbody>
+  </table>
+
+  
+  <h2>⚙️ Como executar o projeto</h2>
+
+  <h3>Pré-requisitos</h3>
+  <ul>
+    <li><a href="https://www.ibm.com/products/bob">IBM Bob</a> instalado e configurado</li>
+    <li><a href="https://www.python.org/">Python 3.10+</a> (apenas para rodar os testes)</li>
+    <li>Nenhuma dependência externa — usa somente a biblioteca padrão do Python</li>
+  </ul>
+
+  <h3>Instalação</h3>
+
+  <h4>1. Crie seu repositório no GitHub</h4>
+  <ol class="steps">
+    <li>Acesse <a href="https://github.com">github.com</a> e faça login na sua conta</li>
+    <li>Clique em <strong>"New"</strong> (botão verde) ou acesse <a href="https://github.com/new">github.com/new</a></li>
+    <li>Preencha os campos:<br />
+      <ul style="margin-top:6px">
+        <li><strong>Repository name:</strong> <code>geo-explorer</code></li>
+        <li><strong>Description:</strong> <code>Plataforma fictícia de exploração — IBM Bob</code></li>
+        <li>Marque <strong>Public</strong></li>
+        <li><strong>Não</strong> marque "Add a README file" (já temos um)</li>
+      </ul>
+    </li>
+    <li>Clique em <strong>"Create repository"</strong></li>
+    <li>Copie a URL — será algo como <code>https://github.com/seu-usuario/geo-explorer.git</code></li>
+  </ol>
+
+  <h4>2. Clone e aponte para o seu repositório</h4>
+  <pre><code><span class="cmt"># Clone o repositório original</span>
+<span class="cmd">git clone</span> https://github.com/vinicioscaires/geo-explorer.git
+<span class="cmd">cd</span> geo-explorer
+
+<span class="cmt"># Troque o remote para apontar para o SEU repositório</span>
+<span class="cmd">git remote set-url origin</span> https://github.com/SEU-USUARIO/geo-explorer.git
+
+<span class="cmt"># Suba o projeto para o seu GitHub</span>
+<span class="cmd">git push</span> --set-upstream origin master</code></pre>
+  <div class="tip">💡 Substitua <code>SEU-USUARIO</code> pelo seu nome de usuário do GitHub.</div>
+
+  <h3>Estrutura do projeto</h3>
+  <pre><code>geo-explorer/
+├── dados/                    <span class="cmt"># Fonte de dados fictícios</span>
+│   └── geo_trilhas.json      <span class="cmt"># 12 trilhas temáticas (fonte de verdade)</span>
+├── comandos/                 <span class="cmt"># Definições dos slash commands (fonte)</span>
+│   ├── trilha.md
+│   ├── desafio.md
+│   └── certificado.md
+├── .bob/
+│   └── commands/             <span class="cmt"># Slash commands ativos no IBM Bob</span>
+├── mcp/
+│   └── server.py             <span class="cmt"># Servidor MCP — 3 ferramentas expostas</span>
+├── docs/                     <span class="cmt"># Documentação</span>
+├── testes/                   <span class="cmt"># Suítes de testes</span>
+│   ├── unitarios/
+│   ├── fluxo/
+│   ├── executar_testes.py
+│   └── resultados.txt
+├── scripts/
+└── assets/</code></pre>
+
+  
+  <h2>🧭 Como usar os comandos</h2>
+  <p>Os comandos são <strong>slash commands do IBM Bob</strong>. Abra o IBM Bob no workspace do projeto e digite no chat.</p>
+
+  <div class="cmd-card">
+    <div class="cmd-name">/trilha &lt;tecnologia&gt;</div>
+    <p style="color:#57606a;font-size:.9rem;margin-bottom:10px">Exibe o plano completo: módulos temáticos, missões especiais, badges, habilidades e recompensa final. Busca <strong>case-insensitive</strong>, aceita nome parcial.</p>
+    <pre style="margin:0"><code>/trilha Python
+/trilha TypeScript
+/trilha "Cloud Computing"</code></pre>
+  </div>
+
+  <div class="cmd-card">
+    <div class="cmd-name">/desafio &lt;tecnologia&gt; &lt;nivel&gt;</div>
+    <p style="color:#57606a;font-size:.9rem;margin-bottom:10px">Gera uma missão narrativa com tipo, tempo, dificuldade em estrelas, XP, entrada/saída, pistas e casos de teste.</p>
+    <pre style="margin:0"><code>/desafio Python Iniciante
+/desafio JavaScript Intermediário
+/desafio DevOps Avançado</code></pre>
+    <table style="margin-top:12px;font-size:.85rem">
+      <thead><tr><th>Nível</th><th>Dificuldade</th><th>XP</th></tr></thead>
+      <tbody>
+        <tr><td class="level-i">Iniciante</td><td>⭐☆☆☆☆</td><td>300–500 XP</td></tr>
+        <tr><td class="level-m">Intermediário</td><td>⭐⭐⭐☆☆</td><td>600–900 XP</td></tr>
+        <tr><td class="level-a">Avançado</td><td>⭐⭐⭐⭐⭐</td><td>1.000–1.500 XP</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cmd-card">
+    <div class="cmd-name">/certificado &lt;nome&gt; &lt;tecnologia&gt;</div>
+    <p style="color:#57606a;font-size:.9rem;margin-bottom:10px">Emite certificado épico com ID único <code>GEO-XXXXXXXXXX</code>, dados reais da trilha e URL de verificação.</p>
+    <pre style="margin:0"><code>/certificado "Ada Lovelace" Python
+/certificado "Alan Turing" Java
+/certificado "Grace Hopper" DevOps</code></pre>
+  </div>
+
+  
+  <h2>🧪 Como executar os testes</h2>
+
+  <h3>Rodar todos os testes</h3>
+  <pre><code><span class="cmd">python</span> testes/executar_testes.py</code></pre>
+
+  <h3>Rodar um arquivo específico</h3>
+  <pre><code><span class="cmt"># /trilha</span>
+<span class="cmd">python -m unittest</span> testes/unitarios/test_trilha.py -v
+
+<span class="cmt"># /desafio</span>
+<span class="cmd">python -m unittest</span> testes/unitarios/test_desafio.py -v
+
+<span class="cmt"># /certificado</span>
+<span class="cmd">python -m unittest</span> testes/unitarios/test_certificado.py -v
+
+<span class="cmt"># Jornada completa (fluxo)</span>
+<span class="cmd">python -m unittest</span> testes/fluxo/test_jornada_explorador.py -v</code></pre>
+
+  <h3>Resultado atual</h3>
+  <div class="test-box">
+    <div class="test-sep">============================================================</div>
+    <div>  RELATÓRIO DE TESTES — GEO-EXPLORER</div>
+    <div class="test-sep">============================================================</div>
+    <div> </div>
+    <div><span class="test-label">  Total de testes : </span><span class="test-val">122</span></div>
+    <div><span class="test-ok">  ✅ Aprovados     : </span><span class="test-val">122</span></div>
+    <div><span class="test-label">  ❌ Falhas        : </span><span class="test-val">0</span></div>
+    <div><span class="test-label">  💥 Erros         : </span><span class="test-val">0</span></div>
+    <div><span class="test-ok">  📊 Cobertura     : </span><span class="test-val">100.0%</span></div>
+    <div><span class="test-ok">  Meta &gt;= 70%     : ATINGIDA ✅</span></div>
+    <div class="test-sep">============================================================</div>
+  </div>
+
+  <h3>Cobertura por módulo</h3>
+  <table>
+    <thead><tr><th>Arquivo</th><th>Classes</th><th>Testes</th></tr></thead>
+    <tbody>
+      <tr><td><code>test_trilha.py</code></td><td>5 — Carregamento, Busca, Estrutura, Formatação, Integridade JSON</td><td><strong>36</strong></td></tr>
+      <tr><td><code>test_desafio.py</code></td><td>5 — Campos, Regras de Negócio, Tipos de Missão, Entrada/Saída, Lendário</td><td><strong>18</strong></td></tr>
+      <tr><td><code>test_certificado.py</code></td><td>6 — Geração, Cálculos, Badges, ID/URL, Data, Entradas Inválidas</td><td><strong>30</strong></td></tr>
+      <tr><td><code>test_jornada_explorador.py</code></td><td>4 — Trilha, Desafio, Certificado, Consistência</td><td><strong>38</strong></td></tr>
+      <tr style="background:#f7f8fa"><td><strong>Total</strong></td><td><strong>20 classes</strong></td><td><strong>122</strong></td></tr>
+    </tbody>
+  </table>
+
+  
+  <h2>🔧 Melhorias realizadas</h2>
+  <div>
+    <div class="melhoria">
+      <div class="melhoria-num">1</div>
+      <div class="melhoria-body">
+        <h4>Arquitetura orientada a dados</h4>
+        <p><code>geo_trilhas.json</code> centraliza todas as informações. Os três comandos leem do mesmo arquivo, garantindo consistência total — XP, badges e recompensa nunca divergem.</p>
+      </div>
+    </div>
+    <div class="melhoria">
+      <div class="melhoria-num">2</div>
+      <div class="melhoria-body">
+        <h4>Busca tolerante a variações</h4>
+        <p>A função <code>buscar_trilha</code> é case-insensitive e busca por <code>tecnologia</code> e <code>nome</code>. <code>/trilha java</code> e <code>/trilha Galáxia Java</code> retornam o mesmo resultado.</p>
+      </div>
+    </div>
+    <div class="melhoria">
+      <div class="melhoria-num">3</div>
+      <div class="melhoria-body">
+        <h4>Validação de entradas inválidas</h4>
+        <p>Nulo, vazio ou inexistente retorna <code>None</code> — nunca lança exceção. Validado por <code>TestEntradasInvalidas</code>.</p>
+      </div>
+    </div>
+    <div class="melhoria">
+      <div class="melhoria-num">4</div>
+      <div class="melhoria-body">
+        <h4>Testes de fluxo end-to-end</h4>
+        <p>A jornada completa <code>/trilha → /desafio → /certificado</code> é validada em 4 etapas, garantindo que tecnologia, nível, XP e badges sejam coerentes entre os três comandos.</p>
+      </div>
+    </div>
+    <div class="melhoria">
+      <div class="melhoria-num">5</div>
+      <div class="melhoria-body">
+        <h4>Runner com relatório persistido</h4>
+        <p>Descoberta automática de testes, exibição formatada no terminal e relatório salvo em <code>testes/resultados.txt</code>.</p>
+      </div>
+    </div>
+    <div class="melhoria">
+      <div class="melhoria-num">6</div>
+      <div class="melhoria-body">
+        <h4>IDs únicos e verificáveis no certificado</h4>
+        <p>Formato <code>GEO-XXXXXXXXXX</code> com URL de verificação associada. Testes validam formato, tamanho e unicidade.</p>
+      </div>
+    </div>
+    <div class="melhoria">
+      <div class="melhoria-num">7</div>
+      <div class="melhoria-body">
+        <h4>Servidor MCP expondo 3 ferramentas</h4>
+        <p><code>mcp/server.py</code> expõe <code>geo_trilha</code>, <code>geo_desafio</code> e <code>geo_certificado</code> para que outros clientes MCP acessem os recursos da plataforma.</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <h2>📚 O que aprendi durante o desafio</h2>
+  <blockquote>
+    Mediante a tudo o que foi passado tive certeza que deveria ter começado mais cedo na minha vida, gostei muito do Bob e pretendo evoluir e aprender ainda mais. Dá pra criar coisas incríveis e no geral o curso foi ótimo. Aprendi a delegar prompts, ordens, funções e descobri um mundo de novas <strong>POSSIBILIDADES QUE NEM IMAGINAVA</strong>.
+  </blockquote>
+
+  
+  <h2>🤖 Desenvolvido com IBM Bob</h2>
+  <p>O Geo-Explorer foi criado inteiramente com o apoio do <strong>IBM Bob</strong> — IA assistente para desenvolvimento de software da IBM.</p>
+  <p>Repositório: <a href="https://github.com/vinicioscaires/geo-explorer">github.com/vinicioscaires/geo-explorer</a></p>
+
+  <footer>
+    Made with IBM Bob
+  </footer>
+
+</div>
+</body>
+</html>
