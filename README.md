@@ -56,11 +56,33 @@ Três comandos principais movem a plataforma, todos operando diretamente dentro 
 
 ### Instalação
 
+#### 1. Crie seu repositório no GitHub
+
+1. Acesse [github.com](https://github.com) e faça login na sua conta
+2. Clique em **"New"** (botão verde no canto superior esquerdo) ou acesse [github.com/new](https://github.com/new)
+3. Preencha os campos:
+   - **Repository name:** `geo-explorer`
+   - **Description:** `Plataforma fictícia de exploração e aprendizagem em tecnologia — IBM Bob`
+   - Marque **Public**
+   - **Não** marque "Add a README file" (já temos um)
+4. Clique em **"Create repository"**
+5. Copie a URL do seu repositório — será algo como `https://github.com/seu-usuario/geo-explorer.git`
+
+#### 2. Clone este repositório e aponte para o seu
+
 ```bash
-# Clone o repositório
+# Clone o repositório original
 git clone https://github.com/vinicioscaires/geo-explorer.git
 cd geo-explorer
+
+# Troque o remote para apontar para o SEU repositório
+git remote set-url origin https://github.com/SEU-USUARIO/geo-explorer.git
+
+# Suba o projeto para o seu GitHub
+git push --set-upstream origin master
 ```
+
+> 💡 Substitua `SEU-USUARIO` pelo seu nome de usuário do GitHub.
 
 Nenhum `pip install` é necessário. O projeto não possui dependências externas.
 
