@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "dio-trilhas": {
+      "command": "python",
+      "args": ["C:/Users/Nod/.bob/playground/mcp/server.py"],
+      "env": {}
+    }
+  }
+}

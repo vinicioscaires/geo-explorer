@@ -1,0 +1,145 @@
+============================================================
+  RELATÓRIO DE TESTES — GEO-EXPLORER
+  Gerado em  : 12/09/2026 20:00:27
+============================================================
+
+  Total de testes : 122
+  ✅ Aprovados    : 122
+  ❌ Falhas       : 0
+  💥 Erros        : 0
+  📊 Cobertura    : 100.0%
+  Meta >= 70%    : ATINGIDA ✅
+
+============================================================
+  DETALHE
+============================================================
+
+test_badges_iguais_trilha (test_certificado.TestBadgesRecompensa.test_badges_iguais_trilha) ... ok
+test_badges_lista (test_certificado.TestBadgesRecompensa.test_badges_lista) ... ok
+test_recompensa_igual_trilha (test_certificado.TestBadgesRecompensa.test_recompensa_igual_trilha) ... ok
+test_recompensa_string (test_certificado.TestBadgesRecompensa.test_recompensa_string) ... ok
+test_horas_corretas (test_certificado.TestCalculosCertificado.test_horas_corretas) ... ok
+test_horas_positivas (test_certificado.TestCalculosCertificado.test_horas_positivas) ... ok
+test_xp_correto (test_certificado.TestCalculosCertificado.test_xp_correto) ... ok
+test_xp_positivo (test_certificado.TestCalculosCertificado.test_xp_positivo) ... ok
+test_data_formato_br (test_certificado.TestData.test_data_formato_br) ... ok
+test_data_string (test_certificado.TestData.test_data_string) ... ok
+test_nome_none (test_certificado.TestEntradasInvalidas.test_nome_none) ... ok
+test_nome_vazio (test_certificado.TestEntradasInvalidas.test_nome_vazio) ... ok
+test_tecnologia_inexistente (test_certificado.TestEntradasInvalidas.test_tecnologia_inexistente) ... ok
+test_tecnologia_none (test_certificado.TestEntradasInvalidas.test_tecnologia_none) ... ok
+test_tecnologia_vazia (test_certificado.TestEntradasInvalidas.test_tecnologia_vazia) ... ok
+test_nao_nulo (test_certificado.TestGeracaoCertificado.test_nao_nulo) ... ok
+test_nivel_iniciante (test_certificado.TestGeracaoCertificado.test_nivel_iniciante) ... ok
+test_nome_explorador (test_certificado.TestGeracaoCertificado.test_nome_explorador) ... ok
+test_tecnologia_python (test_certificado.TestGeracaoCertificado.test_tecnologia_python) ... ok
+test_tema_presente (test_certificado.TestGeracaoCertificado.test_tema_presente) ... ok
+test_trilha_contem_python (test_certificado.TestGeracaoCertificado.test_trilha_contem_python) ... ok
+test_id_comeca_geo (test_certificado.TestIdUrl.test_id_comeca_geo) ... ok
+test_id_string (test_certificado.TestIdUrl.test_id_string) ... ok
+test_id_tamanho_14 (test_certificado.TestIdUrl.test_id_tamanho_14) ... ok
+test_ids_distintos (test_certificado.TestIdUrl.test_ids_distintos) ... ok
+test_url_contem_dominio (test_certificado.TestIdUrl.test_url_contem_dominio) ... ok
+test_url_contem_id (test_certificado.TestIdUrl.test_url_contem_id) ... ok
+test_certificado_devops (test_certificado.TestOutrasTrilhas.test_certificado_devops) ... ok
+test_certificado_java (test_certificado.TestOutrasTrilhas.test_certificado_java) ... ok
+test_certificado_sql (test_certificado.TestOutrasTrilhas.test_certificado_sql) ... ok
+test_casos_lista (test_desafio.TestCamposObrigatorios.test_casos_lista) ... ok
+test_criterios_lista (test_desafio.TestCamposObrigatorios.test_criterios_lista) ... ok
+test_narrativa_longa (test_desafio.TestCamposObrigatorios.test_narrativa_longa) ... ok
+test_nivel_iniciante (test_desafio.TestCamposObrigatorios.test_nivel_iniciante) ... ok
+test_objeto_nao_nulo (test_desafio.TestCamposObrigatorios.test_objeto_nao_nulo) ... ok
+test_pistas_lista (test_desafio.TestCamposObrigatorios.test_pistas_lista) ... ok
+test_tecnologia_python (test_desafio.TestCamposObrigatorios.test_tecnologia_python) ... ok
+test_tipo_string_nao_vazio (test_desafio.TestCamposObrigatorios.test_tipo_string_nao_vazio) ... ok
+test_titulo_string (test_desafio.TestCamposObrigatorios.test_titulo_string) ... ok
+test_desafio_lendario_diferente_narrativa (test_desafio.TestDesafioLendario.test_desafio_lendario_diferente_narrativa) ... ok
+test_desafio_lendario_string (test_desafio.TestDesafioLendario.test_desafio_lendario_string) ... ok
+test_entrada_nao_vazia (test_desafio.TestEntradaSaida.test_entrada_nao_vazia) ... ok
+test_saida_e_lista (test_desafio.TestEntradaSaida.test_saida_e_lista) ... ok
+test_saida_esperada_correta (test_desafio.TestEntradaSaida.test_saida_esperada_correta) ... ok
+test_saida_ordenada_crescente (test_desafio.TestEntradaSaida.test_saida_ordenada_crescente) ... ok
+test_casos_tem_entrada_e_saida (test_desafio.TestRegrasNegocio.test_casos_tem_entrada_e_saida) ... ok
+test_dificuldade_iniciante_1_estrela (test_desafio.TestRegrasNegocio.test_dificuldade_iniciante_1_estrela) ... ok
+test_pelo_menos_1_criterio (test_desafio.TestRegrasNegocio.test_pelo_menos_1_criterio) ... ok
+test_pelo_menos_2_pistas (test_desafio.TestRegrasNegocio.test_pelo_menos_2_pistas) ... ok
+test_pelo_menos_3_casos (test_desafio.TestRegrasNegocio.test_pelo_menos_3_casos) ... ok
+test_titulo_menciona_nivel (test_desafio.TestRegrasNegocio.test_titulo_menciona_nivel) ... ok
+test_titulo_menciona_tecnologia (test_desafio.TestRegrasNegocio.test_titulo_menciona_tecnologia) ... ok
+test_xp_positivo (test_desafio.TestRegrasNegocio.test_xp_positivo) ... ok
+test_tipo_valido (test_desafio.TestTiposDeMissao.test_tipo_valido) ... ok
+test_busca_parcial_java (test_trilha.TestBuscaTrilha.test_busca_parcial_java) ... ok
+test_busca_python_maiusculo (test_trilha.TestBuscaTrilha.test_busca_python_maiusculo) ... ok
+test_busca_python_minusculo (test_trilha.TestBuscaTrilha.test_busca_python_minusculo) ... ok
+test_busca_python_misto (test_trilha.TestBuscaTrilha.test_busca_python_misto) ... ok
+test_busca_react (test_trilha.TestBuscaTrilha.test_busca_react) ... ok
+test_none (test_trilha.TestBuscaTrilha.test_none) ... ok
+test_string_vazia (test_trilha.TestBuscaTrilha.test_string_vazia) ... ok
+test_tecnologia_inexistente (test_trilha.TestBuscaTrilha.test_tecnologia_inexistente) ... ok
+test_arquivo_carregado (test_trilha.TestCarregamentoDados.test_arquivo_carregado) ... ok
+test_campos_obrigatorios (test_trilha.TestCarregamentoDados.test_campos_obrigatorios) ... ok
+test_pelo_menos_uma_trilha (test_trilha.TestCarregamentoDados.test_pelo_menos_uma_trilha) ... ok
+test_total_trilhas_bate (test_trilha.TestCarregamentoDados.test_total_trilhas_bate) ... ok
+test_trilhas_e_lista (test_trilha.TestCarregamentoDados.test_trilhas_e_lista) ... ok
+test_badges_lista_nao_vazia (test_trilha.TestEstruturaTrilhaPython.test_badges_lista_nao_vazia) ... ok
+test_id_correto (test_trilha.TestEstruturaTrilhaPython.test_id_correto) ... ok
+test_missoes_lista_nao_vazia (test_trilha.TestEstruturaTrilhaPython.test_missoes_lista_nao_vazia) ... ok
+test_modulos_positivos (test_trilha.TestEstruturaTrilhaPython.test_modulos_positivos) ... ok
+test_nivel_iniciante (test_trilha.TestEstruturaTrilhaPython.test_nivel_iniciante) ... ok
+test_nome_correto (test_trilha.TestEstruturaTrilhaPython.test_nome_correto) ... ok
+test_recompensa_string (test_trilha.TestEstruturaTrilhaPython.test_recompensa_string) ... ok
+test_tema_aventura (test_trilha.TestEstruturaTrilhaPython.test_tema_aventura) ... ok
+test_trilha_ativa (test_trilha.TestEstruturaTrilhaPython.test_trilha_ativa) ... ok
+test_xp_positivo (test_trilha.TestEstruturaTrilhaPython.test_xp_positivo) ... ok
+test_badges_lista (test_trilha.TestFormatacaoPlano.test_badges_lista) ... ok
+test_formatar_none_retorna_none (test_trilha.TestFormatacaoPlano.test_formatar_none_retorna_none) ... ok
+test_missoes_lista (test_trilha.TestFormatacaoPlano.test_missoes_lista) ... ok
+test_modulos_corretos (test_trilha.TestFormatacaoPlano.test_modulos_corretos) ... ok
+test_plano_nao_nulo (test_trilha.TestFormatacaoPlano.test_plano_nao_nulo) ... ok
+test_tecnologia_python (test_trilha.TestFormatacaoPlano.test_tecnologia_python) ... ok
+test_tema_presente (test_trilha.TestFormatacaoPlano.test_tema_presente) ... ok
+test_titulo_contem_nome (test_trilha.TestFormatacaoPlano.test_titulo_contem_nome) ... ok
+test_xp_correto (test_trilha.TestFormatacaoPlano.test_xp_correto) ... ok
+test_badges_nao_vazias (test_trilha.TestIntegridadeJSON.test_badges_nao_vazias) ... ok
+test_horas_positivas (test_trilha.TestIntegridadeJSON.test_horas_positivas) ... ok
+test_ids_unicos (test_trilha.TestIntegridadeJSON.test_ids_unicos) ... ok
+test_modulos_inteiros_positivos (test_trilha.TestIntegridadeJSON.test_modulos_inteiros_positivos) ... ok
+test_niveis_validos (test_trilha.TestIntegridadeJSON.test_niveis_validos) ... ok
+test_xp_positivos (test_trilha.TestIntegridadeJSON.test_xp_positivos) ... ok
+test_e1_01_db_carregado (test_jornada_explorador.TestEtapa1Trilha.test_e1_01_db_carregado) ... ok
+test_e1_02_trilha_encontrada (test_jornada_explorador.TestEtapa1Trilha.test_e1_02_trilha_encontrada) ... ok
+test_e1_03_nome_da_trilha (test_jornada_explorador.TestEtapa1Trilha.test_e1_03_nome_da_trilha) ... ok
+test_e1_04_plano_gerado (test_jornada_explorador.TestEtapa1Trilha.test_e1_04_plano_gerado) ... ok
+test_e1_05_nivel_correto (test_jornada_explorador.TestEtapa1Trilha.test_e1_05_nivel_correto) ... ok
+test_e1_06_tecnologia_correta (test_jornada_explorador.TestEtapa1Trilha.test_e1_06_tecnologia_correta) ... ok
+test_e1_07_modulos_positivos (test_jornada_explorador.TestEtapa1Trilha.test_e1_07_modulos_positivos) ... ok
+test_e1_08_xp_positivo (test_jornada_explorador.TestEtapa1Trilha.test_e1_08_xp_positivo) ... ok
+test_e1_09_badges_presentes (test_jornada_explorador.TestEtapa1Trilha.test_e1_09_badges_presentes) ... ok
+test_e1_10_missoes_presentes (test_jornada_explorador.TestEtapa1Trilha.test_e1_10_missoes_presentes) ... ok
+test_e2_01_tecnologia_igual_trilha (test_jornada_explorador.TestEtapa2Desafio.test_e2_01_tecnologia_igual_trilha) ... ok
+test_e2_02_nivel_igual_trilha (test_jornada_explorador.TestEtapa2Desafio.test_e2_02_nivel_igual_trilha) ... ok
+test_e2_03_titulo_menciona_tecnologia (test_jornada_explorador.TestEtapa2Desafio.test_e2_03_titulo_menciona_tecnologia) ... ok
+test_e2_04_pelo_menos_3_casos (test_jornada_explorador.TestEtapa2Desafio.test_e2_04_pelo_menos_3_casos) ... ok
+test_e2_05_xp_menor_que_total_trilha (test_jornada_explorador.TestEtapa2Desafio.test_e2_05_xp_menor_que_total_trilha) ... ok
+test_e2_06_pelo_menos_2_pistas (test_jornada_explorador.TestEtapa2Desafio.test_e2_06_pelo_menos_2_pistas) ... ok
+test_e2_07_criterios_existem (test_jornada_explorador.TestEtapa2Desafio.test_e2_07_criterios_existem) ... ok
+test_e3_01_certificado_gerado (test_jornada_explorador.TestEtapa3Certificado.test_e3_01_certificado_gerado) ... ok
+test_e3_02_nome_explorador (test_jornada_explorador.TestEtapa3Certificado.test_e3_02_nome_explorador) ... ok
+test_e3_03_trilha_consistente (test_jornada_explorador.TestEtapa3Certificado.test_e3_03_trilha_consistente) ... ok
+test_e3_04_xp_consistente_com_plano (test_jornada_explorador.TestEtapa3Certificado.test_e3_04_xp_consistente_com_plano) ... ok
+test_e3_05_horas_consistentes (test_jornada_explorador.TestEtapa3Certificado.test_e3_05_horas_consistentes) ... ok
+test_e3_06_badges_iguais_ao_plano (test_jornada_explorador.TestEtapa3Certificado.test_e3_06_badges_iguais_ao_plano) ... ok
+test_e3_07_nivel_consistente (test_jornada_explorador.TestEtapa3Certificado.test_e3_07_nivel_consistente) ... ok
+test_e3_08_url_contem_id (test_jornada_explorador.TestEtapa3Certificado.test_e3_08_url_contem_id) ... ok
+test_e4_01_tecnologia_consistente_em_todos (test_jornada_explorador.TestEtapa4Consistencia.test_e4_01_tecnologia_consistente_em_todos) ... ok
+test_e4_02_nivel_consistente_em_todos (test_jornada_explorador.TestEtapa4Consistencia.test_e4_02_nivel_consistente_em_todos) ... ok
+test_e4_03_badges_iguais_plano_certificado (test_jornada_explorador.TestEtapa4Consistencia.test_e4_03_badges_iguais_plano_certificado) ... ok
+test_e4_04_todos_objetos_validos (test_jornada_explorador.TestEtapa4Consistencia.test_e4_04_todos_objetos_validos) ... ok
+test_e4_05_tema_consistente_plano_certificado (test_jornada_explorador.TestEtapa4Consistencia.test_e4_05_tema_consistente_plano_certificado) ... ok
+
+----------------------------------------------------------------------
+Ran 122 tests in 0.011s
+
+OK
+
+============================================================
